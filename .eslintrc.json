@@ -46,7 +46,13 @@
     ],
     "complexity": "warn",
     "no-console": ["error"],
-    "prettier/prettier": ["error"],
+    //fix CR error
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "import/no-restricted-paths": [
       "error",
       {
