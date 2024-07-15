@@ -46,6 +46,40 @@
     ],
     "complexity": "warn",
     "no-console": ["error"],
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "zones": [
+          // disables cross-feature imports:
+          // eg. app/features/discussions should not import from app/features/comments, etc.
+          {
+              "target": "./app/_features/authentication",
+              "from": "./app/_features", //prohibit path
+              "except": ["./authentication"]
+          },
+          {
+              "target": "./app/_features/document",
+              "from": "./app/_features",
+              "except": ["./document"]
+          },
+          // More restrictions...
+
+          //* enforce unidirectional codebase:
+          // e.g. app/routes can import from app/features but not the other way around
+          {
+            "target": "./app/_features",
+            "from": "./app/(routes)"
+          },
+          // e.g app/_features and app/(routes) can import from these shared modules but not the other way around
+          {
+            "target": [
+                "./app/_shared"
+            ],
+            "from": ["./app/_features", "./app/(routes)"]
+          }
+        ]
+      }
+    ]
   }
 }
