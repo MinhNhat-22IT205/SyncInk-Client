@@ -3,16 +3,13 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Button,
   Drawer,
-  DrawerBody,
-  DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
-  Input,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useRef } from "react";
+
+import SidebarContent from "./SidebarContent";
 
 export default function DrawerButton() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,23 +24,14 @@ export default function DrawerButton() {
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="xs"
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
-
-          <DrawerBody>
-            <Input placeholder="Type here..." />
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
+          <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
     </>
