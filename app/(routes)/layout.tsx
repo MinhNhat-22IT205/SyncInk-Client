@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import "react-quill/dist/quill.snow.css";
 import { ChakraUIProvider } from "../_shared/lib/chakra-ui/ChakraUIProvider";
 
 const inter = Inter({ subsets: ["latin"] });

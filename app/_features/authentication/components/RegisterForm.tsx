@@ -7,7 +7,7 @@ import FormField from "@/app/_shared/components/FormField";
 import {
   RegisterSchemaType,
   yRegisterSchema,
-} from "../lib/schema/yup-register-validate.schema";
+} from "../lib/schema/yup-register.schema";
 
 const initialValues: RegisterSchemaType = {
   email: "",

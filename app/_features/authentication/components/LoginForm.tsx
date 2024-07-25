@@ -2,15 +2,12 @@
 
 import { Button, Box, VStack, useToast } from "@chakra-ui/react";
 import { Form, Formik } from "formik";
+import { useRouter } from "next/navigation";
 
 import FormField from "@/app/_shared/components/FormField";
 import { login } from "@/app/_shared/lib/next-auth/login-action";
 
-import {
-  yLoginSchema,
-  LoginSchemaType,
-} from "../lib/schema/yup-login-validate.schema";
-import { useRouter } from "next/navigation";
+import { yLoginSchema, LoginSchemaType } from "../lib/schema/yup-login.schema";
 
 const initialValues: LoginSchemaType = {
   email: "",
@@ -39,7 +36,7 @@ const LoginForm = () => {
               isClosable: true,
               position: "top-right",
             });
-            router.push("/");
+            router.push("/documents");
           } catch (error) {
             toast({
               title: "Login failed.",

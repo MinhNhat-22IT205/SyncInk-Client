@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: process.env.AXIOS_BASE_URL,
+  baseURL: "http://localhost:3001/v1",
 });
 
 const setAuthToken = (token: string | null) => {
