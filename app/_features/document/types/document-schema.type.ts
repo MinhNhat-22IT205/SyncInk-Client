@@ -1,5 +1,3 @@
-import { AccessType } from "./document-access.type";
-
 export type DocumentType = {
   id: string;
   title: string;
@@ -11,3 +9,4 @@ export type DocumentType = {
   createdAt: Date;
   updatedAt: Date;
 };
+export type AccessType = "VIEWABLE" | "EDITABLE" | "RESTRICTED";

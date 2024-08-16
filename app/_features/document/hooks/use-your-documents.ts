@@ -1,8 +1,6 @@
 "use client";
-import { useEffect } from "react";
 import useSWR from "swr";
 
-import { http } from "@/app/_shared/lib/axios/axios.base";
 import { fetcher } from "@/app/_shared/lib/axios/fetcher";
 
 import { DocumentType } from "../types/document-schema.type";
